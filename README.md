@@ -49,9 +49,10 @@ The second type I'm calling "Middleware Classes", they basically determine if th
 
 A "Middleware Class" works just like the hello world example above, except it also needs a `__construct` class. When each class on the stack are initialized, they are passed the initialized object of the stack item after itself. This allows the `call` method to use `$this->app->call($env);` to pass on execution to the next stack item.
 
-Bellow is a simple Middleware class example:
+Bellow is a simple Middleware class example, which builds on to the hello world example from above.
 
     <?php
+    Rack::insert_before("App", "FormatXml");
     class FormatXml {
     	function __construct (&$app) {
     		$this->app =& $app;
