@@ -33,8 +33,6 @@ class Rack {
 		$env = array();
 	
 	private static
-		# default headers
-		$headers = array("Content-Type" => "text/html"),
 		$constructed = false,
 		$ob_started = false;
 	
@@ -144,7 +142,6 @@ class Rack {
 		
 		// send headers
 		header(self::$env["SERVER_PROTOCOL"]." ".$status);
-		$headers = array_merge(self::$headers, $headers);
 		foreach( $headers as $key => $value ) {
 			header($key.": ".$value);
 		}
