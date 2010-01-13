@@ -62,7 +62,6 @@ class Rack {
 	
 	
 	public static function insert_before ($target, $name, $file = null) {
-		if ( !self::$ob_started ) self::init();
 		if ( !self::$constructed ) {
 			if ( array_key_exists($target, self::$middleware) ) {
 				$keys = array_keys(self::$middleware);
@@ -84,7 +83,6 @@ class Rack {
 	
 	
 	public static function insert_after ($target, $name, $file = null) {
-		if ( !self::$ob_started ) self::init();
 		if ( !self::$constructed ) {
 			if ( array_key_exists($target, self::$middleware) ) {
 				$keys = array_keys(self::$middleware);
