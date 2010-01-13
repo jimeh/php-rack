@@ -105,6 +105,28 @@ class Rack {
 	}
 	
 	
+	public static function swap ($target, $name, $file = null) {
+		if ( !self::$constructed ) {
+			if ( array_key_exists($target, self::$middleware) ) {
+				$keys = array_keys(self::$middleware);
+				$length = count($keys);
+				$middleware = array();
+				for ( $i=0; $i < $length; $i++ ) {
+					if ( $keys[$i] == $target ) {
+						$middleware[$name] = true;
+					} else {
+						$middleware[$keys[$i]] =& self::$middleware[$keys[$i]];
+					}
+				}
+				self::$middleware = $middleware;
+				self::require_file($file);
+				return false;
+			}
+		}
+		return false;
+	}
+	
+	
 	public static function not_found () {
 		return array(404, array("Content-Type" => "text/html"), "Not Found");
 	}
