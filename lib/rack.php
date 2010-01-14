@@ -1,7 +1,7 @@
 <?php
 /*
 
-   PHP Rack
+   PHP Rack v0.1.0
 
    Copyright (c) 2010 Jim Myhrberg.
 
