@@ -39,9 +39,11 @@ class Rack {
 	
 	public static function init ($middleware = array()) {
 		
-		// quick initialization
+		// easy initialization
 		if ( !empty($middleware) && is_array($middleware) ) {
-			self::$middleware = array_merge(self::$middleware, $middleware);
+			$ware = array();
+			foreach( $middleware as $key => $value ) $ware[$value] = true;
+			self::$middleware = array_merge(self::$middleware, $ware);
 		}
 		
 		// don't output anything before Rack has output it's headers
