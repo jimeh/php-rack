@@ -59,7 +59,7 @@ Bellow is a simple Middleware class example, which builds on to the hello world 
     	}
     	function call (&$env) {
     		list($status, $headers, $body) = $this->app->call($env);
-			if ( !empty($env["request.vars"]["format"]) && $env["request.get"]["format"] == "xml" ) {
+			if ( !empty($env["request.vars"]["format"]) && $env["request.vars"]["format"] == "xml" ) {
 				$headers["Content-Type"] = "application/xml";
 			}
     		return array($status, $headers, $body);
