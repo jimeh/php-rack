@@ -16,7 +16,7 @@ class Format {
 		
 		// do something with response headers
 		foreach( $formats as $key => $value ) {
-			if ( !empty($env["request.vars"]["format"]) && $env["request.get"]["format"] == $key ) {
+			if ( !empty($env["request.vars"]["format"]) && $env["request.vars"]["format"] == $key ) {
 				$headers["Content-Type"] = $value;
 			}
 		}
