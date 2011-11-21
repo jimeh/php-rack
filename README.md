@@ -73,7 +73,7 @@ All this middleware does is check if there is a GET or a POST variable by the na
 ## Public Rack Methods
 
 * `Rack::add($name, $file = null)` — Add middleware class with name `$name`, and require file `$file` if set, and file exists.
-* `Rack::insert_before($target, $name, $file = null)` — Same as `Rack::add()`, except that instead of placing the new middleware at the end of the stack, it is inserted before the middleware `$name`.
+* `Rack::insert_before($target, $name, $file = null)` — Same as `Rack::add()`, except that instead of placing the new middleware at the end of the stack, it is inserted before the middleware `$target`.
 * `Rack::insert_after($target, $name, $file = null)` — Same as `Rack::insert_before()`, except new middleware is inserted after `$target`.
 * `Rack::swap($target, $name, $file = null)` — Replace `$target` middleware with `$name`.
 * `Rack::init($middleware = array())` — Can optionally be used as a simpler way to start Rack, as it takes an array of strings representing the stack classes. It also starts output buffering, so anything echoed within a stack class, will not be output till after Rack has output it's headers. Is also automatically called to start output buffering if needed the first time you call `Rack::add()`.
