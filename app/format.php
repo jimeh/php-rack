@@ -1,10 +1,6 @@
 <?php
 
-class Format {
-	
-	function __construct (&$app) {
-		$this->app =& $app;
-	}
+class Format extends RackMiddleware {
 	
 	function call (&$env) {
 		

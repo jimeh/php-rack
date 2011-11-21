@@ -1,10 +1,6 @@
 <?php
 
-class Api {
-	
-	function __construct (&$app) {
-		$this->app =& $app;
-	}
+class Api extends RackMiddleware {
 	
 	function call (&$env) {
 		if ( preg_match("/^\/api\/([a-z]{1}[a-z0-9]*)/i", $env["PATH_INFO"], $match) ) {
