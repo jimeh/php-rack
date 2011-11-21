@@ -192,4 +192,12 @@ class Rack {
 	
 }
 
+class RackMiddleware {
+	
+	public function __construct (&$app) {
+		$this->app =& $app;
+	}
+	
+}
+
 ?>
